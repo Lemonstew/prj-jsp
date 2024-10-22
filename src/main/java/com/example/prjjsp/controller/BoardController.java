@@ -31,12 +31,14 @@ public class BoardController {
     }
 
     @PostMapping("new")
-    public String newBoard(Board board) {
+    public String newBoard(Board board, RedirectAttributes rttr) {
 
         System.out.println(board);
         service.add(board);
 
-        return "redirect:/board/list";
+        rttr.addAttribute("id", board.getId());
+
+        return "redirect:/board/view";
     }
 
     @GetMapping("list")
@@ -73,7 +75,7 @@ public class BoardController {
 
         rttr.addAttribute("id", board.getId());
 
-        return "redirect:/board/list";
+        return "redirect:/board/view";
     }
 }
 
