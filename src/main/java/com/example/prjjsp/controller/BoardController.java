@@ -56,5 +56,11 @@ public class BoardController {
 
         return "redirect:/board/list";
     }
+
+    @GetMapping("edit")
+    public void editBoard(Integer id, Model model) {
+        Board board = service.get(id);
+        model.addAttribute("board", board);
+    }
 }
 

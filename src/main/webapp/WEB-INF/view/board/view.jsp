@@ -29,5 +29,6 @@
         <button>삭제</button>
     </form>
 </div>
+<a href="/board/edit?id=${board.id}">수정</a>
 </body>
 </html>
