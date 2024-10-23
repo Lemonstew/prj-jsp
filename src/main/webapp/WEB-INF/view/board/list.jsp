@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
+    <style>
+        .active {
+            background-color: yellow;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
@@ -38,7 +43,8 @@
 <div>
     <%--    pagination    --%>
     <c:forEach begin="${pageInfo.leftPageNumber}" end="${pageInfo.rightPageNumber}" var="pageNumber">
-        <a href="/board/list?page=${pageNumber}">${pageNumber}</a>
+        <a class="${pageInfo.currentPageNumber == pageNumber ? 'active' : ''}"
+           href="/board/list?page=${pageNumber}">${pageNumber}</a>
     </c:forEach>
 </div>
 </body>
