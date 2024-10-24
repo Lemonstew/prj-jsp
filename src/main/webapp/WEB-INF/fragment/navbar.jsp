@@ -23,6 +23,13 @@
                             Write
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/member/signup" class="nav-link">
+                            <i class="fa-solid fa-user-group"></i>
+                            회원가입
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
