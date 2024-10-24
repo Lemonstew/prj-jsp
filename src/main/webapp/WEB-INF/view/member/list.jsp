@@ -12,41 +12,34 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-
 <c:import url="/WEB-INF/fragment/navbar.jsp">
 </c:import>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-9 col-lg-6">
-            <h2 class="my-3">회원가입</h2>
-            <form method="post">
-                <%--        id, password, nickname, description      --%>
-                <div class="mb-3">
-                    <label for="inputId1" class="form-label">아이디</label>
-                    <input id="inputId1" name="id" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="inputPassword1" class="form-label">암호</label>
-                    <input id="inputPassword1" name="password" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="inputNickName1" class="form-label">닉네임</label>
-                    <input id="inputNickName1" name="nick_name" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="textareaDescription1" class="form-label"></label>
-                    <textarea type="text" name="description" class="form-control" id="textareaDescription1"
-                              rows="10">
-                    </textarea>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary">
-                        <i class="fa-solid fa-user-plus"></i>
-                        가입
-                    </button>
-                </div>
-            </form>
+            <h2 class="my-3">회원목록</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>아이디</th>
+                    <th>별명</th>
+                    <th>가입일시</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${memberList} var=member">
+                    <tr>
+                        <td>
+                            <a href="/member/view?id=${member.id}">
+                                ${member.id}</td>
+                        </a>
+                        <td>${member.nick_name}</td>
+                        <td>${member.inserted}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

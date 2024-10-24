@@ -4,6 +4,7 @@ import com.example.prjjsp.dto.Member;
 import com.example.prjjsp.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +33,15 @@ public class MemberController {
                 "text", "회원가입되었습니다."));
         return "redirect:/board/list";
 
+    }
+
+    @GetMapping("list")
+    public void list(Model model) {
+        model.addAttribute("memberList", service.list());
+    }
+
+    @GetMapping("view")
+    public void info(String id, Model model) {
+        service.
     }
 }

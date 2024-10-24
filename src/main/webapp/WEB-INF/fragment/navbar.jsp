@@ -29,7 +29,12 @@
                             회원가입
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a href="/member/list" class="nav-link">
+                            <i class="fa-regular fa-address-book"></i>
+                            회원목록
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
