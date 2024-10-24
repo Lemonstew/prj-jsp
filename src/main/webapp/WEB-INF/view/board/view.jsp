@@ -13,30 +13,46 @@
 </head>
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
-<h2>${board.id}번 게시글 보기</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-9 col-lg-6">
+            <h2>${board.id}번 게시글 보기</h2>
 
-<div>
-    <input type="text" value="${board.title}" readonly>
-</div>
-<div>
-    <textarea id="" cols="30" rows="10" readonly>${board.content}</textarea>
-</div>
-<div>
-    작성자
-    <input type="text" name="writer" value="${board.writer}" readonly>
-</div>
-<div>
-    작성일자
-    <input type="text" value="${board.inserted}" readonly>
-</div>
+            <div>
+                <label for="" class="form-label">제목</label>
+                <input class="form-control" type="text" value="${board.title}" readonly>
+            </div>
+            <div>
+                <label for="" class="form-label">본문</label>
+                <textarea class="form-control" id="" cols="30" rows="10" readonly>${board.content}</textarea>
+            </div>
+            <div>
+                <label for="" class="form-label">작성자</label>
+                <input class="form-control" type="text" name="writer" value="${board.writer}" readonly>
+            </div>
+            <div>
+                <label for="" class="form-label">작성일시</label>
+                <input class="form-control" type="text" value="${board.inserted}" readonly>
+            </div>
+            <button form="deleteForm1" class="btn btn-outline-danger">
+                <i class="fa-regular fa-trash-can"></i>
+                삭제
+            </button>
 
-<div>
-    <form action="/board/delete" method="post">
-        <input type="hidden" name="id" value="${board.id}">
-        <button>삭제</button>
-    </form>
+            <a href="/board/edit?id=${board.id}" class="btn btn-outline-primary">
+                <i class="fa-regular fa-pen-to-square"></i>
+                수정
+            </a>
+            <div>
+                <form id="deleteForm1" class="d-none" action="/board/delete" method="post">
+                    <div>
+                        <input type="hidden" name="id" value="${board.id}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<a href="/board/edit?id=${board.id}">수정</a>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
