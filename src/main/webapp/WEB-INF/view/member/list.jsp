@@ -12,8 +12,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<c:import url="/WEB-INF/fragment/navbar.jsp">
-</c:import>
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -28,13 +27,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${memberList} var=member">
+                <c:forEach items="${memberList}" var="member">
                     <tr>
                         <td>
                             <a href="/member/view?id=${member.id}">
                                 ${member.id}</td>
                         </a>
-                        <td>${member.nick_name}</td>
+                        <td>${member.nickName}</td>
                         <td>${member.inserted}</td>
                     </tr>
                 </c:forEach>

@@ -42,6 +42,7 @@ public class MemberController {
 
     @GetMapping("view")
     public void info(String id, Model model) {
-        service.
+        Member member = service.info(id);
+        model.addAttribute("member", member);
     }
 }

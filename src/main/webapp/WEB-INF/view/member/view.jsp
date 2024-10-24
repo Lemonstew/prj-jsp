@@ -12,7 +12,6 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-
 <c:import url="/WEB-INF/fragment/navbar.jsp">
 </c:import>
 
@@ -24,38 +23,35 @@
                 <%--        id, password, nickname, description      --%>
                 <div class="mb-3">
                     <label for="inputId1" class="form-label">아이디</label>
-                    <input id="inputId1" name="id" type="text" class="form-control">
+                    <input value="${member.id}" readonly id="inputId1" name="id" type="text" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword1" class="form-label">암호</label>
-                    <input id="inputPassword1" name="password" type="text" class="form-control">
+                    <input value="${member.password}" readonly id="inputPassword1" name="password" type="text"
+                           class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="inputNickName1" class="form-label">닉네임</label>
-                    <input id="inputNickName1" name="nickName" type="text" class="form-control">
+                    <input value="${member.nickName}" readonly id="inputNickName1" name="nickName" type="text"
+                           class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="textareaDescription1" class="form-label"></label>
                     <textarea type="text" name="description" class="form-control" id="textareaDescription1"
-                              rows="10">
+                              rows="10">${member.description}
                     </textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary">
-                        <i class="fa-solid fa-user-plus"></i>
-                        가입
-                    </button>
+                    <label for="inputInserted1" class="form-label">가입일시</label>
+                    <input class="form-control" id="inputInserted1" type="datetime-local" value="${member.inserted}"
+                           readonly>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                        crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+                        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+                        crossorigin="anonymous"></script>
 </body>
 </html>

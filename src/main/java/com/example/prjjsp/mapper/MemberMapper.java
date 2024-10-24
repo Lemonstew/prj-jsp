@@ -13,7 +13,7 @@ public interface MemberMapper {
     @Insert("""
             INSERT INTO member
             (id, password, nick_name, description)
-            VAlUES (#{id}, #{password}, #{nick_name}, #{description})
+            VAlUES (#{id}, #{password}, #{nickName}, #{description})
             """)
     int insert(Member member);
 
@@ -23,4 +23,10 @@ public interface MemberMapper {
             ORDER BY id
             """)
     List<Member> selectAll();
+
+    @Select("""
+            SELECT * FROM member
+            WHERE id = #{id}
+            """)
+    Member selectById(String id);
 }
