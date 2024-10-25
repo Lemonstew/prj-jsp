@@ -2,6 +2,7 @@ package com.example.prjjsp.controller;
 
 import com.example.prjjsp.dto.Member;
 import com.example.prjjsp.service.MemberService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -125,7 +126,8 @@ public class MemberController {
     @PostMapping("login")
     public String loginProcess(String id,
                                String password,
-                               RedirectAttributes rttr) {
+                               RedirectAttributes rttr,
+                               HttpSession session) {
         Member member = service.get(id, password);
 
         if (member == null) {
@@ -136,8 +138,19 @@ public class MemberController {
         } else {
             rttr.addFlashAttribute("message", Map.of("type", "success",
                     "text", "로그인 되었습니다."));
+            session.setAttribute("loggedInMember", member);
             return "redirect:/board/list";
             //성공
         }
+    }
+
+    @RequestMapping("logout")
+    public String logout(RedirectAttributes rttr, HttpSession session) {
+        session.invalidate();
+
+        rttr.addFlashAttribute("mesage", Map.of("type", "success",
+                "text", "로그아웃 되었습니다"));
+
+        return "redirect:/member/login";
     }
 }
