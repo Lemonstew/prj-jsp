@@ -3,6 +3,7 @@ package com.example.prjjsp.controller;
 import com.example.prjjsp.dto.Member;
 import com.example.prjjsp.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,5 +69,27 @@ public class MemberController {
 
     }
 
+    @GetMapping("edit")
+    public void edit(String id, Model model) {
+        model.addAttribute("member", service.info(id));
+    }
+
+    @PostMapping("edit")
+    public String editProcess(Member member, RedirectAttributes rttr) {
+        try {
+            service.update(member);
+            rttr.addFlashAttribute("message", Map.of("type", "success",
+                    "text", "회원정보가 수정되었습니다."));
+        } catch (DuplicateKeyException e) {
+            rttr.addFlashAttribute("message", Map.of("type", "danger",
+                    "text", STR."\{member.getNickName()}은 이미 사용중인 별명입니다."));
+            rttr.addAttribute("id", member.getId());
+            return "redirect:/member/edit";
+        }
+
+        rttr.addAttribute("id", member.getId());
+
+        return "redirect:/member/view";
+    }
 
 }
