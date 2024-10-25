@@ -21,6 +21,7 @@
                             List
                         </a>
                     </li>
+
                     <c:if test="${loggedIn}">
                         <li class="nav-item">
                             <a class="nav-link ${param.active == 'new' ? 'active' : ''}" href="/board/new">
@@ -29,6 +30,7 @@
                             </a>
                         </li>
                     </c:if>
+
                     <c:if test="${not loggedIn}">
                         <li class="nav-item">
                             <a href="/member/signup" class="nav-link">
@@ -37,6 +39,7 @@
                             </a>
                         </li>
                     </c:if>
+
                     <c:if test="${loggedIn}">
                         <li class="nav-item">
                             <a href="/member/list" class="nav-link">
@@ -45,20 +48,25 @@
                             </a>
                         </li>
                     </c:if>
-                    <c:if test="${not loggedIn}}">
+
+                    <c:if test="${not loggedIn}">
                         <li class="nav-item">
-                            <a href="/member/login" class="nav-link"></a>
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            로그인
+                            <a href="/member/login" class="nav-link">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                로그인
+                            </a>
                         </li>
                     </c:if>
+
                     <c:if test="${loggedIn}">
                         <li class="nav-item">
-                            <a href="/member/logout" class="nav-link"></a>
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            로그아웃
+                            <a href="/member/logout" class="nav-link">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                로그아웃
+                            </a>
                         </li>
                     </c:if>
+
                 </ul>
             </div>
         </div>

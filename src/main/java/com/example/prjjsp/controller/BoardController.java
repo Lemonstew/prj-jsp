@@ -22,7 +22,7 @@ public class BoardController {
 
     //  /board/new
     @GetMapping("new")
-    public String newBoard(@SessionAttribute(value = "loggenInMember",
+    public String newBoard(@SessionAttribute(value = "loggedInMember",
             required = false) Member member, RedirectAttributes rttr) {
 
         if (member == null) {
