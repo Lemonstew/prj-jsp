@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-9 col-lg-6">
             <h2 class="my-3">회원 정보 수정</h2>
-            <form action="/member/edit" method="post">
+            <form id="updateForm2" action="/member/edit" method="post">
                 <%--        id, password, nickname, description      --%>
                 <div class="mb-3">
                     <label for="inputId1" class="form-label">아이디</label>
@@ -37,7 +37,9 @@
                     </textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary">
+                    <button type="button" class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#updateConfirmModal1">
                         <i class="fa-solid fa-pen-to-square"></i>
                         수정
                     </button>
@@ -46,6 +48,26 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="updateConfirmModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">변경 확인</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                회원정보를 수정하시겠습니까?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                <button form="updateForm2" class="btn btn-primary">저장</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
