@@ -35,6 +35,11 @@
                             회원목록
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/member/login" class="nav-link"></a>
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        로그인
+                    </li>
                 </ul>
             </div>
         </div>
