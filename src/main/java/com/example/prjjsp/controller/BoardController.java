@@ -1,14 +1,12 @@
 package com.example.prjjsp.controller;
 
 import com.example.prjjsp.dto.Board;
+import com.example.prjjsp.dto.Member;
 import com.example.prjjsp.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -24,9 +22,19 @@ public class BoardController {
 
     //  /board/new
     @GetMapping("new")
-    public void newBoard() {
+    public String newBoard(@SessionAttribute(value = "loggenInMember",
+            required = false) Member member, RedirectAttributes rttr) {
 
-        // /WEB-INF/view/board/new.jsp
+        if (member == null) {
+            // 로그인 안한 상태
+            rttr.addFlashAttribute("message", Map.of("type", "warning",
+                    "text", "로그인한 회원만 글 작성이 가능합니다."));
+            return "redirect:/member/login";
+        } else {
+            // 로그인 한 상태
+            // /WEB-INF/view/board/new.jsp
+            return "board/new";
+        }
 
 
     }
