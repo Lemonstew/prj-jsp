@@ -46,7 +46,7 @@ public interface BoardMapper {
     @Select("""
             <script>
                 SELECT * FROM board
-                <trim prefix="WHERE " prefixOverrides="OR">
+                <trim prefix="WHERE" prefixOverrides="OR">
                     <if test="searchTarget == 'all' or searchTarget == 'title'">
                         title LIKE CONCAT('%', #{keyword}, '%')
                     </if>
@@ -66,7 +66,7 @@ public interface BoardMapper {
     @Select("""
             <script>
             SELECT COUNT(id) FROM board
-                <trim prefix="WHERE " prefixOverrides="OR">
+                <trim prefix="WHERE" prefixOverrides="OR">
                     <if test="searchTarget == 'all' or searchTarget == 'title'">
                         title LIKE CONCAT('%', #{keyword}, '%')
                     </if>
@@ -77,7 +77,7 @@ public interface BoardMapper {
                         OR writer LIKE CONCAT('%', #{keyword}, '%')
                     </if>
                 </trim>
-            <script>
+            </script>
             """)
     Integer countAll(String searchTarget, String keyword);
 }
