@@ -31,7 +31,7 @@
             </div>
             <div>
                 <label for="" class="form-label">작성자</label>
-                <input class="form-control" type="text" name="writer" value="${board.writer}" readonly>
+                <input class="form-control" type="text" name="writer" value="${board.writerNickName}" readonly>
             </div>
             <div>
                 <label for="" class="form-label">작성일시</label>
