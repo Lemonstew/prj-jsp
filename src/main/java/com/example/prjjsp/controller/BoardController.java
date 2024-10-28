@@ -60,7 +60,7 @@ public class BoardController {
     @GetMapping("list")
     public void listBoard(@RequestParam(name = "page", defaultValue = "1") Integer page,
                           @RequestParam(required = false) String searchTarget,
-                          @RequestParam(required = false) String keyword,
+                          @RequestParam(defaultValue = "false") String keyword,
                           Model model) {
         // 한 페이지에 10개의 게시물
 
