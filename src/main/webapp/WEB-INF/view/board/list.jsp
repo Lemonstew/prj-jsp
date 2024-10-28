@@ -74,9 +74,9 @@
         <div class="col-2">
             <select name="searchTarget" id="select1" class="form-select">
                 <option value="all">전체</option>
-                <option value="title">제목</option>
-                <option value="content">본문</option>
-                <option value="writer">작성자</option>
+                <option value="title" ${param.searchTarget == 'title' ? 'selected' : ''}>제목</option>
+                <option value="content" ${param.searchTarget == 'content' ? 'selected' : ''}>본문</option>
+                <option value="writer" ${param.searchTarget == 'writer' ? 'selected' : ''}>작성자</option>
             </select>
         </div>
         <div class="col-4">

@@ -80,7 +80,7 @@ public class BoardController {
                               RedirectAttributes rttr,
                               @SessionAttribute("loggedInMember") Member member) {
         try {
-            service.remove(id);
+            service.remove(id, member);
 
             rttr.addFlashAttribute("message",
                     Map.of("type", "warning",
