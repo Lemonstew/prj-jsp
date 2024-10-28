@@ -48,6 +48,7 @@ public class BoardService {
 
         Map<String, Object> pageInfo = new HashMap<>();
 
+        pageInfo.put("hasPrevPage", hasPrevPage);
         pageInfo.put("hasNextPage", hasNextPage);
         pageInfo.put("nextPageNumber", nextPageNumber);
         pageInfo.put("prevPageNumber", prevPageNumber);
