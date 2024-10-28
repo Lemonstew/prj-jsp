@@ -67,6 +67,11 @@
                         </li>
                     </c:if>
 
+                    <li>
+                        <%--                        TODO : 지우거나 업데이트 할 것--%>
+                        로그인: ${sessionScope.loggedInMember.id}}
+                    </li>
+
                 </ul>
             </div>
         </div>
